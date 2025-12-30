@@ -29,7 +29,7 @@ app.add_middleware(
     allow_origins=[
         "http://localhost:3000",      # Next.js dev
         "http://localhost:5173",      # Vite dev
-        "https://contentforge.com",   # Production (sonra güncelle)
+        "https://contentforge-frontend-ezis.onrender.com",   # Production (sonra güncelle)
     ],
     allow_credentials=True,
     allow_methods=["*"],
