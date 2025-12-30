@@ -2,7 +2,9 @@
 
 **AI-Powered Turkish Blog Generator** - 5 yapay zeka agent'ı ile profesyonel blog içeriği oluşturun.
 
-![ContentForge Demo](https://contentforge-frontend-ezis.onrender.com)
+👉 **[ContentForge'u Dene](https://contentforge-frontend-ezis.onrender.com)**
+
+> ⚠️ İlk açılışta 30-60 saniye bekleyebilir (free hosting)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
