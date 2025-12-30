@@ -1,25 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-
-interface Agent {
-  id: string;
-  name: string;
-  name_en: string;
-  avatar: string;
-  color: string;
-  description: string;
-  tasks: string[];
-}
-
-interface AgentEvent {
-  type: 'agent_start' | 'agent_complete' | 'final' | 'saved' | 'error';
-  agent?: Agent;
-  step?: number;
-  total_steps?: number;
-  message: string;
-  data?: any;
-}
+import { Agent, AgentEvent } from '@/lib/types';
 
 interface AgentProgressProps {
   events: AgentEvent[];
@@ -44,7 +26,7 @@ export default function AgentProgress({ events, isComplete }: AgentProgressProps
       setTotalSteps(lastEvent.total_steps || 5);
       setMessages(prev => [...prev, { 
         agent: lastEvent.agent!, 
-        message: lastEvent.message, 
+        message: lastEvent.message || '', 
         isComplete: false 
       }]);
     }
@@ -57,7 +39,7 @@ export default function AgentProgress({ events, isComplete }: AgentProgressProps
         if (lastIdx >= 0 && newMessages[lastIdx].agent.id === lastEvent.agent!.id) {
           newMessages[lastIdx] = {
             ...newMessages[lastIdx],
-            message: lastEvent.message,
+            message: lastEvent.message || '',
             isComplete: true
           };
         }

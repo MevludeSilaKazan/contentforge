@@ -5,33 +5,10 @@ import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { Sparkles, LogOut, Plus, FileText, Copy, Check, Trash2, Users, MessageSquare, FileBarChart } from 'lucide-react';
 import { getToken, logout, createBlogStream, getBlogHistory, getUsage, deleteBlog } from '@/lib/api';
+import { Blog, Usage, AgentEvent } from '@/lib/types';
 import RichContent from '@/components/RichContent';
 import AgentProgress from '@/components/AgentProgress';
 import QualityDisplay from '@/components/QualityDisplay';
-
-interface Blog {
-  id: string;
-  topic: string;
-  content: string;
-  created_at: string;
-  quality?: any;
-}
-
-interface Usage {
-  plan: string;
-  used: number;
-  limit: number;
-  remaining: number;
-}
-
-interface AgentEvent {
-  type: string;
-  agent?: any;
-  step?: number;
-  total_steps?: number;
-  message: string;
-  data?: any;
-}
 
 // Seçenekler
 const AUDIENCE_OPTIONS = [

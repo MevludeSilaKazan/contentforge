@@ -2,6 +2,8 @@
  * ContentForge API Client
  */
 
+import { AgentEvent } from './types';
+
 const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
 
 // Token yönetimi
@@ -103,7 +105,7 @@ export function createBlogStream(
   tone: string = 'friendly',
   length: string = 'medium',
   format_type: string = 'standard',
-  onEvent: (event: any) => void,
+  onEvent: (event: AgentEvent) => void,
   onError: (error: Error) => void,
   onComplete: () => void
 ): () => void {
@@ -152,7 +154,7 @@ export function createBlogStream(
       for (const line of lines) {
         if (line.startsWith('data: ')) {
           try {
-            const data = JSON.parse(line.slice(6));
+            const data = JSON.parse(line.slice(6)) as AgentEvent;
             onEvent(data);
           } catch (e) {
             console.error('Event parse hatası:', e);
