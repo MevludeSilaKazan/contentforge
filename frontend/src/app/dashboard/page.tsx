@@ -431,7 +431,7 @@ export default function DashboardPage() {
                               blog.quality.overall.score >= 40 ? 'bg-yellow-100 text-yellow-700' :
                               'bg-red-100 text-red-700'
                             }`}>
-                              {blog.quality.overall.badge} {blog.quality.overall.score}
+                              {blog.quality.overall.grade} {blog.quality.overall.score}
                             </span>
                           )}
                         </div>
