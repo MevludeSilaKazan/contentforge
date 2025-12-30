@@ -1,0 +1,53 @@
+# Render Blueprint
+# https://render.com/docs/blueprint-spec
+
+services:
+  # ===========================================
+  # BACKEND
+  # ===========================================
+  - type: web
+    name: contentforge-backend
+    env: python
+    region: frankfurt
+    plan: free
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn api.app:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.0
+      - key: GROQ_API_KEY
+        sync: false
+      - key: SERPER_API_KEY
+        sync: false
+      - key: UNSPLASH_ACCESS_KEY
+        sync: false
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_KEY
+        sync: false
+
+  # ===========================================
+  # FRONTEND
+  # ===========================================
+  - type: web
+    name: contentforge-frontend
+    env: node
+    region: frankfurt
+    plan: free
+    rootDir: frontend
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_VERSION
+        value: 18
+      - key: NEXT_PUBLIC_API_URL
+        fromService:
+          name: contentforge-backend
+          type: web
+          property: host
+      - key: NEXT_PUBLIC_SUPABASE_URL
+        sync: false
+      - key: NEXT_PUBLIC_SUPABASE_ANON_KEY
+        sync: false

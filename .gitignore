@@ -1,0 +1,81 @@
+# ===========================================
+# ContentForge .gitignore
+# ===========================================
+
+# ===========================================
+# Environment & Secrets
+# ===========================================
+.env
+.env.local
+.env.*.local
+*.pem
+
+# ===========================================
+# Python / Backend
+# ===========================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+.venv/
+env/
+ENV/
+*.egg-info/
+dist/
+build/
+.eggs/
+*.egg
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+
+# Backend outputs
+backend/outputs/
+outputs/
+
+# ===========================================
+# Node.js / Frontend
+# ===========================================
+node_modules/
+.next/
+out/
+.nuxt/
+dist/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# ===========================================
+# IDE & Editors
+# ===========================================
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# ===========================================
+# Docker
+# ===========================================
+.docker/
+
+# ===========================================
+# Testing
+# ===========================================
+coverage/
+.nyc_output/
+
+# ===========================================
+# Misc
+# ===========================================
+*.log
+*.tmp
+*.temp
+.cache/
