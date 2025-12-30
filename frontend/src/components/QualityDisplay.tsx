@@ -4,7 +4,7 @@ interface QualityScore {
   overall: {
     score: number;
     level: string;
-    badge: string;
+    grade: string;
   };
   readability: {
     score: number;
@@ -123,7 +123,7 @@ export default function QualityDisplay({ quality, compact = false }: QualityDisp
     // Kompakt görünüm - sadece genel skor
     return (
       <div className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-full ${getScoreBg(overall.score)}`}>
-        <span>{overall.badge}</span>
+        <span>{overall.grade}</span>
         <span className={`font-semibold ${getScoreColor(overall.score)}`}>
           {overall.score}/100
         </span>
@@ -143,7 +143,7 @@ export default function QualityDisplay({ quality, compact = false }: QualityDisp
       <div className={`mb-6 p-4 rounded-lg ${getScoreBg(overall.score)}`}>
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <span className="text-3xl">{overall.badge}</span>
+            <span className="text-3xl">{overall.grade}</span>
             <div>
               <div className={`text-2xl font-bold ${getScoreColor(overall.score)}`}>
                 {overall.score}/100
